@@ -30,4 +30,18 @@ public class TextStatisticsTest {
 
         Assert.assertEquals(expectedLineCount, lineCount);
     }
+
+    @Test
+    public void canGetAverageLettersPerWord() {
+        TextStatistics textStatistics = new TextStatistics();
+        double averageLetters = textStatistics.averageLettersPerWord("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/test_file.txt");
+        double expectedAverage = 5.5;
+
+        Assert.assertEquals(expectedAverage, averageLetters,0);
+
+        averageLetters = textStatistics.averageLettersPerWord("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/blank_file.txt");
+        expectedAverage = 0;
+
+        Assert.assertEquals(expectedAverage, averageLetters,0);
+    }
 }
