@@ -1,19 +1,19 @@
 import com.njsandford.stats.TextStatistics;
 import org.junit.*;
 
-import java.util.Map;
-
 public class TextStatisticsTest {
 
     @Test
     public void canCountWordsInTextFile() {
-        TextStatistics textStatistics = new TextStatistics();
-        int wordCount = textStatistics.wordCountByWhiteSpace("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/test_words.txt");
+        TextStatistics textStatistics = new TextStatistics("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/test_words.txt");
+        int wordCount = textStatistics.wordCountByWhiteSpace();
         int expectedWordCount = 19;
 
         Assert.assertEquals(expectedWordCount, wordCount);
 
-        wordCount = textStatistics.wordCountByWhiteSpace("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/blank_file.txt");
+        textStatistics = new TextStatistics("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/blank_file.txt");
+
+        wordCount = textStatistics.wordCountByWhiteSpace();
         expectedWordCount = 0;
 
         Assert.assertEquals(expectedWordCount, wordCount);
@@ -21,13 +21,15 @@ public class TextStatisticsTest {
 
     @Test
     public void canGetLineCount() {
-        TextStatistics textStatistics = new TextStatistics();
-        int lineCount = textStatistics.lineCount("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/test_file.txt");
+        TextStatistics textStatistics = new TextStatistics("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/test_file.txt");
+        int lineCount = textStatistics.lineCount();
         int expectedLineCount = 9;
 
         Assert.assertEquals(expectedLineCount, lineCount);
 
-        lineCount = textStatistics.lineCount("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/blank_file.txt");
+        textStatistics = new TextStatistics("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/blank_file.txt");
+
+        lineCount = textStatistics.lineCount();
         expectedLineCount = 0;
 
         Assert.assertEquals(expectedLineCount, lineCount);
@@ -35,13 +37,15 @@ public class TextStatisticsTest {
 
     @Test
     public void canGetAverageLettersPerWord() {
-        TextStatistics textStatistics = new TextStatistics();
-        double averageLetters = textStatistics.averageLettersPerWord("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/test_file.txt");
+        TextStatistics textStatistics = new TextStatistics("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/test_file.txt");
+        double averageLetters = textStatistics.averageLettersPerWord();
         double expectedAverage = 5.5;
 
         Assert.assertEquals(expectedAverage, averageLetters,0);
 
-        averageLetters = textStatistics.averageLettersPerWord("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/blank_file.txt");
+        textStatistics = new TextStatistics("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/blank_file.txt");
+
+        averageLetters = textStatistics.averageLettersPerWord();
         expectedAverage = 0;
 
         Assert.assertEquals(expectedAverage, averageLetters,0);
@@ -49,9 +53,9 @@ public class TextStatisticsTest {
 
     @Test
     public void canGetMostCommonWord() {
-        TextStatistics textStatistics = new TextStatistics();
+        TextStatistics textStatistics = new TextStatistics("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/test_file.txt");
 
-        String mostCommonWord = textStatistics.mostCommonWord("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/test_file.txt");
+        String mostCommonWord = textStatistics.mostCommonWord();
         String expectedWord = "sit";
 
         Assert.assertEquals(expectedWord, mostCommonWord);

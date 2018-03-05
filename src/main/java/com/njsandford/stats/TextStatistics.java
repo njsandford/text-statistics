@@ -8,56 +8,52 @@ import java.util.*;
  * Provides functionality to compute statistics on text files.
  *
  * @author Natalie Sandford
- *
+ * @date 05/03/2018
  * @see ReadFile
  */
 public class TextStatistics {
 
-    private ReadFile readFile = new ReadFile();
-
+    private ReadFile readFile;
 
     /**
-     * Constructs a text statistic object with a new instance of {@link ReadFile}.
+     * Constructs a text statistic object with a new instance of {@link ReadFile} with the specified filepath.
      */
-    public TextStatistics() {
-        this.readFile = new ReadFile();
+    public TextStatistics(String filepath) {
+        this.readFile = new ReadFile(filepath);
     }
 
     /**
      * Counts the number of words in a text file delimited by whitespace characters.
-     * @param filepath the full filepath in the text file.
      * @return number of whitespace delimited words in text document.
      */
-    public int wordCountByWhiteSpace(String filepath) {
-        List<String> lines = readFile.getLines(filepath);
+    public int wordCountByWhiteSpace() {
+        List<String> lines = readFile.getLines();
         List<String> words = getAllWordsFromLines(lines);
         return words.size();
     }
 
     /**
      * Counts the number of lines in a text file.
-     * @param filepath the full filepath of the text file.
      * @return the number of lines in the text file.
      */
-    public int lineCount(String filepath) {
-        List<String> lines = readFile.getLines(filepath);
+    public int lineCount() {
+        List<String> lines = readFile.getLines();
 
         return lines.size();
     }
 
     /**
      * Calculates the average number of letters in a text file to one decimal place.
-     * @param filepath the full filepath of the text file.
      * @return the average number of letters per word in the text file to one decimal place.
      */
-    public double averageLettersPerWord(String filepath) {
+    public double averageLettersPerWord() {
         double averageLetters = 0;
 
         double totalWords = 0;
         double totalLetters = 0;
         double currentWords = 0;
 
-        List<String> lines = readFile.getLines(filepath);
+        List<String> lines = readFile.getLines();
         for (String line : lines) {
             String[] words = line.split("[\\W]+");
             currentWords = words.length;
@@ -73,12 +69,11 @@ public class TextStatistics {
 
     /**
      * Finds the most commonly occuring word in a text file.
-     * @param filepath the full filepath of the text file.
      * @return the most common word.
      */
-    public String mostCommonWord(String filepath) {
+    public String mostCommonWord() {
 
-        List<String> content = readFile.getLines(filepath);
+        List<String> content = readFile.getLines();
         Map<String, Integer> wordFreq = getWordFrequencies(content);
 
         String modeWord = "";

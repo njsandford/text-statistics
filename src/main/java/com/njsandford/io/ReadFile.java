@@ -3,15 +3,33 @@ package com.njsandford.io;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Provides functionality to read from a text file and return the content of the file.
+ *
+ * @author Natalie Sandford
+ * @date 05/03/2018
+ */
 public class ReadFile {
 
-    public String getContentAsString(String filepath) {
+    private String filepath;
+
+    /**
+     * Constructs a read file object containing a filepath for a text file.
+     * @param filepath
+     */
+    public ReadFile(String filepath) {
+        this.filepath = filepath;
+    }
+
+    /**
+     * Get all text content from a text file and return as a single string.
+     * Should only be used for text files that are known to be small enough to be held in a single String object.
+     * @return a string representation of the text file content.
+     */
+    public String getContentAsString() {
         String content = "";
         try (BufferedReader br = new BufferedReader(new FileReader(filepath))) {
 
@@ -27,7 +45,11 @@ public class ReadFile {
         return content;
     }
 
-    public List<String> getLines(String filepath) {
+    /**
+     * Get all lines from a text file stored as an array list of strings.
+     * @return list of all lines in the text file.
+     */
+    public List<String> getLines() {
         List<String> lines = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filepath))) {
