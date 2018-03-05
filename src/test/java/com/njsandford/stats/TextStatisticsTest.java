@@ -1,4 +1,5 @@
-import com.njsandford.stats.TextStatistics;
+package com.njsandford.stats;
+
 import org.junit.*;
 
 public class TextStatisticsTest {

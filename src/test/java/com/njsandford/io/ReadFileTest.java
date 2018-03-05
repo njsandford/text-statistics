@@ -1,4 +1,5 @@
-import com.njsandford.io.ReadFile;
+package com.njsandford.io;
+
 import org.junit.*;
 
 import java.util.ArrayList;
