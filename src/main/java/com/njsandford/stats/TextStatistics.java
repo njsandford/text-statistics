@@ -8,7 +8,6 @@ import java.util.*;
  * Provides functionality to compute statistics on text files.
  *
  * @author Natalie Sandford
- * @date 05/03/2018
  * @see ReadFile
  */
 public class TextStatistics {
@@ -17,6 +16,7 @@ public class TextStatistics {
 
     /**
      * Constructs a text statistic object with a new instance of {@link ReadFile} with the specified filepath.
+     * @param filepath the full filepath of the text file.
      */
     public TextStatistics(String filepath) {
         this.readFile = new ReadFile(filepath);

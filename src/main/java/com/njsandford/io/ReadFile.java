@@ -10,7 +10,6 @@ import java.util.List;
  * Provides functionality to read from a text file and return the content of the file.
  *
  * @author Natalie Sandford
- * @date 05/03/2018
  */
 public class ReadFile {
 
@@ -18,7 +17,7 @@ public class ReadFile {
 
     /**
      * Constructs a read file object containing a filepath for a text file.
-     * @param filepath
+     * @param filepath the full filepath of the text file.
      */
     public ReadFile(String filepath) {
         this.filepath = filepath;
