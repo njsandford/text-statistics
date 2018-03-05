@@ -1,6 +1,8 @@
 import com.njsandford.stats.TextStatistics;
 import org.junit.*;
 
+import java.util.Map;
+
 public class TextStatisticsTest {
 
     @Test
@@ -43,5 +45,15 @@ public class TextStatisticsTest {
         expectedAverage = 0;
 
         Assert.assertEquals(expectedAverage, averageLetters,0);
+    }
+
+    @Test
+    public void canGetMostCommonWord() {
+        TextStatistics textStatistics = new TextStatistics();
+
+        String mostCommonWord = textStatistics.mostCommonWord("/Users/natalie/IdeaProjects/text-statistics/src/main/resources/files/test_file.txt");
+        String expectedWord = "sit";
+
+        Assert.assertEquals(expectedWord, mostCommonWord);
     }
 }
