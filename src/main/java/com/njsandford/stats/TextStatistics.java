@@ -29,12 +29,9 @@ public class TextStatistics {
      * @return number of whitespace delimited words in text document.
      */
     public int wordCountByWhiteSpace(String filepath) {
-        String text = readFile.getContentAsString(filepath);
-        if (text == "") {
-            return 0;
-        }
-        String[] words = text.split("\\s");
-        return words.length;
+        List<String> lines = readFile.getLines(filepath);
+        List<String> words = getAllWordsFromLines(lines);
+        return words.size();
     }
 
     /**
@@ -113,7 +110,6 @@ public class TextStatistics {
                 wordFrequencies.put(word, wordFrequencies.get(word) + 1);
             }
         }
-
         return wordFrequencies;
     }
 
