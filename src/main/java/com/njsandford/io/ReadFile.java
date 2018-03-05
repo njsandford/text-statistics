@@ -13,6 +13,9 @@ import java.util.List;
  */
 public class ReadFile {
 
+    /**
+     * The full filepath of the text file.
+     */
     private String filepath;
 
     /**

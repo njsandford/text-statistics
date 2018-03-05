@@ -12,6 +12,9 @@ import java.util.*;
  */
 public class TextStatistics {
 
+    /**
+     * Instance of read file using the specified filepath.
+     */
     private ReadFile readFile;
 
     /**
